@@ -1,0 +1,11 @@
+<ion-view title="Locales">
+  <ion-content class="has-header" has-bouncing="true">
+    <ion-list>
+      <a ng-repeat="local in locales" class="item item-thumbnail-left" href="#/tab/local/{{local.id}}">
+        <img src="img/rock4.png" />
+        <h2>{{local.name}}</h2>
+        <p>{{local.description}}</p>
+      </a>
+    </ion-list>
+  </ion-content>
+</ion-view>

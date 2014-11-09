@@ -1,0 +1,54 @@
+<ion-view title="Eventos">
+  
+  <div ng-if="bError != true ">
+    
+    <ion-header-bar class="bar-light bar-subheader">
+      <input type="search"
+        placeholder="Filter eventos..."
+        ng-model="search"
+        ng-focus="searchFocused = true"
+        ng-blur="searchFocused = false"
+        ng-change="scrollTop()">
+      <button ng-if="search.length"
+        class="button button-icon ion-android-close input-button"
+        ng-click="clearSearch()">
+      </button>
+    </ion-header-bar>
+    
+    <ion-content class="has-header" has-bouncing="true">
+      
+      <div class="list">
+        <a class="item my-item item-thumbnail-left" href="#/tab/evento/{{evento.id}}"
+          collection-repeat="evento in eventos | filter:search"
+          collection-item-width="'100%'"
+          collection-item-height="getItemHeight(evento, $index)">
+          <img src="img/rock4.png" />
+          <h2>{{evento.title}}</h2>
+          <p>{{evento.description}}</p>
+        </a>
+      </div>
+  </div>
+  {{bError}}
+  <div ng-if="bError == true ">
+    <ion-content class="has-header" has-bouncing="true">
+      <div class="card">
+      <div class="item item-text-wrap">
+        {{sError}}
+      </div>
+      </div>
+    
+    </ion-content>
+  </div>
+  
+  
+    <!--
+    <ion-list>
+      <a ng-repeat="evento in eventos" class="item item-thumbnail-left" href="#/tab/evento/{{evento.id}}">
+        <img src="img/rock4.png" />
+        <h2>{{evento.title}}</h2>
+        <p>{{evento.description}}</p>
+      </a>
+    </ion-list>
+    -->
+  </ion-content>
+</ion-view>

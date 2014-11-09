@@ -1,0 +1,30 @@
+<ion-view title="Grupos">
+  
+  <ion-header-bar class="bar-light bar-subheader">
+  <div class="bar bar-header item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input id="search" type="search" placeholder="Search" ng-model="query">
+    </label>
+    <button class="button button-clear" on-click="cleanSearch();">
+      Cancel
+    </button>
+  </div>
+  </ion-header-bar>
+
+  <ion-content class="has-header" has-bouncing="true">
+    <ion-list>
+      <a ng-repeat="grupo in grupos | filter:query" class="item item-thumbnail-left" href="#/tab/grupo/{{grupo.id}}">
+        <img src="img/rock4.png" />
+        <h2>{{grupo.name}}</h2>
+        <p>{{grupo.description}}</p>
+      </a>
+    </ion-list>
+  </ion-content>
+  
+  <script type="text/javascript">
+    function cleanSearch() {
+      $('#search').html("");
+    }
+  </script>
+</ion-view>
